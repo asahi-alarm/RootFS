@@ -343,6 +343,8 @@
     "find /sbin/ /bin/ /usr/bin/ -perm /2000 -delete",
     "pacman --noconfirm -R rust-bindgen sudo clang gcc rust",
     "pacman --noconfirm -Scc",
+    "sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen",
+    "locale-gen",
     "chmod +r /usr/lib/dbus-daemon-launch-helper"
   ],
 
