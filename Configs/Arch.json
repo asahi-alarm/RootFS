@@ -257,9 +257,7 @@
   ],
 
   "CopyFiles_Stage0": [
-    "Scripts/Arch/cross_x86",
     "Scripts/Arch/mega_install_packages.sh",
-    "Scripts/Arch/build_install_mesa.sh",
     "Scripts/chroot.py"
   ],
 
@@ -270,9 +268,7 @@
   ],
 
   "CopyFiles_Stage1": [
-    ["cross_x86", "root/"],
     ["mega_install_packages.sh", "root/"],
-    ["build_install_mesa.sh", "root/"],
     ["chroot.py", "/"]
   ],
 
@@ -341,7 +337,6 @@
 
   "Commands_InChroot2": [
     "killall -3 gpg-agent",
-    "sh /root/build_install_mesa.sh",
     "rm -Rf /usr/local",
     "rm -Rf /root/*",
     "rm -Rf /root/.*",
