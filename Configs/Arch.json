@@ -257,8 +257,7 @@
   ],
 
   "CopyFiles_Stage0": [
-    "Scripts/Arch/mega_install_packages.sh",
-    "Scripts/chroot.py"
+    "Scripts/Arch/mega_install_packages.sh"
   ],
 
   "CopyFiles_Stage1_CMT": [
@@ -268,8 +267,7 @@
   ],
 
   "CopyFiles_Stage1": [
-    ["mega_install_packages.sh", "root/"],
-    ["chroot.py", "/"]
+    ["mega_install_packages.sh", "root/"]
   ],
 
   "Commands_Stage1_0_CMT": [
@@ -355,10 +353,6 @@
 
   "Commands_Stage2": [
     "export ROOTFS=./RootFS",
-    "reset",
-    "echo 'Breaking'",
-    "python3 $ROOTFS/chroot.py break",
-    "echo 'Did it'",
     "umount $ROOTFS/proc/",
     "umount -R $ROOTFS/sys/",
     "umount -R $ROOTFS/dev/pts/",
