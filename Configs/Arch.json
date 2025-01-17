@@ -263,6 +263,7 @@
     "arch_vulkan_pkgs/vulkan-headers-1:1.4.304-1-any.pkg.tar.zst",
     "arch_vulkan_pkgs/lib32-libxshmfence-1.3.3-1-x86_64.pkg.tar.zst",
     "arch_vulkan_pkgs/mesa-asahi-dummy-25.0.0_pre20241211-6-any.pkg.tar.xz",
+    "Scripts/Arch/cleanup.sh",
     "Scripts/Arch/mega_install_packages.sh"
   ],
 
@@ -279,6 +280,7 @@
     ["vulkan-headers-1:1.4.304-1-any.pkg.tar.zst", "root/"],
     ["lib32-libxshmfence-1.3.3-1-x86_64.pkg.tar.zst", "root/"],
     ["mesa-asahi-dummy-25.0.0_pre20241211-6-any.pkg.tar.xz", "root/"],
+    ["cleanup.sh", "/"],
     ["mega_install_packages.sh", "root/"]
   ],
 
@@ -377,7 +379,9 @@
     "rmdir $ROOTFS/proc",
     "rmdir $ROOTFS/dev/pts",
     "rmdir $ROOTFS/dev",
-    "rmdir $ROOTFS/sys"
+    "rmdir $ROOTFS/sys",
+    "sh $ROOTFS/cleanup.sh",
+    "rm $ROOTFS/cleanup.sh"
   ],
 
   "RemoveFiles_Stage2_CMT": [
@@ -385,7 +389,6 @@
   ],
 
   "RemoveFiles_Stage2": [
-    "etc/pacman.d/gnupg/S*"
   ],
 
   "RemoveDirs_Stage2": [
@@ -394,9 +397,6 @@
   ],
 
   "RemoveDirs_Stage2": [
-    "etc/credstore",
-    "etc/credstore.encrypted",
-    "var/cache/"
   ],
 
   "Commands_Stage3": [
