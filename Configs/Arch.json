@@ -262,6 +262,7 @@
     "arch_vulkan_pkgs/vulkan-tools-1.4.304-2-x86_64.pkg.tar.zst",
     "arch_vulkan_pkgs/vulkan-headers-1:1.4.304-1-any.pkg.tar.zst",
     "arch_vulkan_pkgs/lib32-libxshmfence-1.3.3-1-x86_64.pkg.tar.zst",
+    "arch_vulkan_pkgs/mesa-asahi-dummy-25.0.0_pre20241211-6-any.pkg.tar.xz",
     "Scripts/Arch/mega_install_packages.sh"
   ],
 
@@ -277,6 +278,7 @@
     ["vulkan-tools-1.4.304-2-x86_64.pkg.tar.zst", "root/"],
     ["vulkan-headers-1:1.4.304-1-any.pkg.tar.zst", "root/"],
     ["lib32-libxshmfence-1.3.3-1-x86_64.pkg.tar.zst", "root/"],
+    ["mesa-asahi-dummy-25.0.0_pre20241211-6-any.pkg.tar.xz", "root/"],
     ["mega_install_packages.sh", "root/"]
   ],
 
@@ -337,7 +339,8 @@
     "pacman --noconfirm -Syu",
     "pacman --noconfirm -S perl",
     "perl -0777 -pi -e 's/#\\[multilib\\]\\n#Include\/\\[multilib\\]\\nInclude\/igs' /etc/pacman.conf",
-    "pacman --noconfirm -Syu"
+    "pacman --noconfirm -Syu",
+    "pacman --noconfirm -U /root/mesa-asahi-dummy-25.0.0_pre20241211-6-any.pkg.tar.xz"
   ],
 
   "Commands_InChroot2_CMT": [
