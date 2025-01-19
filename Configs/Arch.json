@@ -191,11 +191,6 @@
     "pacman --noconfirm -Syu",
     "pacman --noconfirm -S perl",
     "perl -0777 -pi -e 's/#\\[multilib\\]\\n#Include\/\\[multilib\\]\\nInclude\/igs' /etc/pacman.conf",
-    "pacman-key --recv-keys 12CE6799A94A3F1B5DDFFE88F576553597FB8FEB",
-    "pacman-key --lsign-key 12CE6799A94A3F1B5DDFFE88F576553597FB8FEB",
-    "echo 'Server = https://github.com/asahi-alarm/asahi-x86_64/releases/download/$arch' >> /etc/pacman.d/mirrorlist.asahi-x86_64",
-    "echo '[asahi-x86_64]' >> /etc/pacman.conf",
-    "echo 'Include = /etc/pacman.d/mirrorlist.asahi-x86_64' >> /etc/pacman.conf",
     "pacman --noconfirm -Syu"
   ],
 
