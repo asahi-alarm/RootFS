@@ -1,0 +1,26 @@
+name: build
+on:
+  workflow_dispatch:
+jobs:
+  compile:
+    name: build fex rootfs
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          ref: "asahi-alarm"
+      - name: build rootfs
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          set -x
+          sudo apt update -y
+          sudo apt dist-upgrade -y
+          sudo apt install -y apt-file python3-git python3-requests qemu-utils pigz guestfs-tools cloud-image-utils erofs-utils linux-image-kvm xz-utils
+
+          sudo ./build_image.py -m 16G -no-repack-tar -no-repack-squashfs Configs/Arch.json cache_dir rootfs_dir
+          sudo mv rootfs_dir/ArchLinux.ero rootfs_dir/default.erofs
+          sudo xz rootfs_dir/default.erofs
+          sudo chmod 644 rootfs_dir/default.erofs.xz
+          gh release upload rootfs --repo asahi-alarm/asahi-alarm --clobber rootfs_dir/default.erofs.xz
