@@ -29,11 +29,10 @@ sudo umount -R "$SCRIPTPATH/tmp"
 sudo umount "$SCRIPTPATH/proc/"
 sudo umount -R "$SCRIPTPATH/sys/"
 sudo umount -R "$SCRIPTPATH/dev/pts/"
-sudo umount -R "$SCRIPTPATH/dev/"
+sudo umount -l -R "$SCRIPTPATH/dev/"
 
 echo "Removing container mount folders"
 rmdir "$SCRIPTPATH/sys"
-rmdir "$SCRIPTPATH/dev/pts/"
 rmdir "$SCRIPTPATH/dev"
 rmdir "$SCRIPTPATH/proc"
 
