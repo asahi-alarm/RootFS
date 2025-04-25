@@ -229,7 +229,6 @@
     "gdb",
     "krb5",
     "lib32-krb5",
-    "libc++",
     "pam",
     "lib32-pam",
     "sed",
@@ -356,6 +355,7 @@
   ],
 
   "Commands_InChroot2": [
+    "pacman --noconfirm -S libc++",
     "useradd -m builduser",
     "echo \"builduser ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers.d/builduser",
     "chmod 440 /etc/sudoers.d/builduser",
