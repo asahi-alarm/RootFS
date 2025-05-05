@@ -39,7 +39,6 @@ find "$BASEPATH"/usr/share -mindepth 1 -maxdepth 1 \
 
 # rm everything in /etc except /etc/alternatives and ld stuff
 find "$BASEPATH"/etc -mindepth 1 -maxdepth 1 \
-    \! -name 'resolv.conf' -a \
     \! -name 'ld.so*' -a \
     \! -name OpenCL \
     -exec rm -rf {} \;
