@@ -24,3 +24,8 @@ jobs:
           sudo xz rootfs_dir/default.erofs
           sudo chmod 644 rootfs_dir/default.erofs.xz
           gh release upload rootfs --repo asahi-alarm/asahi-alarm --clobber rootfs_dir/default.erofs.xz
+      - name: Trigger fex-emu-rootfs-arch rebuild
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh workflow run build.yml --repo asahi-alarm/PKGBUILDs -f packages="fex-emu-rootfs-arch"
